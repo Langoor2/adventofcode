@@ -1,4 +1,4 @@
-with open("test1") as file:
+with open("input") as file:
      lines = [item.strip() for item in file.readlines()]
 
 totalprio = 0
@@ -21,6 +21,30 @@ print(totalprio)
 
 # part 2
 totalprio = 0
+elf1 = 0
+elf2 = 0
+elf3 = 0
+i = 0
 
 for line in lines:
-	
+	if i==0:
+		elf1 = set(line)
+		i += 1
+	elif i==1:
+		elf2 = set(line)
+		i += 1
+	elif i==2:
+		elf3 = set(line)
+		i = 0
+		shareditem = str(elf1.intersection(elf2, elf3))[2]
+		if shareditem.islower():
+			itemprio = ord(shareditem) - 96
+		else:
+			itemprio = ord(shareditem) - 38
+		totalprio = totalprio + itemprio
+		print(shareditem)
+		print(itemprio)
+print()
+print(totalprio)
+
+
