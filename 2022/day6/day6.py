@@ -29,7 +29,7 @@ firstset = False
 for line in lines:
      for char in line:
           pos += 1
-          if len(packets) < 13:
+          if len(packets) < 14:
                packets.append(char)
           else:
                if (len(packets)==len(set(packets))) == True:
@@ -38,5 +38,5 @@ for line in lines:
                          firstpos = pos
                packets.pop(0)
                packets.append(char)
-print (firstpos)
+print (firstpos-1)
 
